@@ -50,5 +50,5 @@ jobs:
 
             # Run the new JAR file inside a Docker container
             docker run -d --name my-java-app -p 8080:8080 \
-              -v /home/ec2-user/your-app.jar:/app/your-app.jar openjdk:17-jdk-slim \
-              java -jar /app/your-app.jar
+              -v /home/ec2-user/SkillSpace-0.0.1-SNAPSHOT.jar:/app/SkillSpace-0.0.1-SNAPSHOT.jar openjdk:17-jdk-slim \
+              java -jar /app/SkillSpace-0.0.1-SNAPSHOT.jar
