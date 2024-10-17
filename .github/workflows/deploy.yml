@@ -34,7 +34,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
           source: "target/SkillSpace-0.0.1-SNAPSHOT.jar" # The JAR file to be uploaded
-          target: "/home/ubuntu/SkillSpace-0.0.1-SNAPSHOT.jar" # The path on EC2 where the JAR should be placed
+          target: "/home/ec2-user/SkillSpace-0.0.1-SNAPSHOT.jar" # The path on EC2 where the JAR should be placed
 
       # Step 5: SSH into the EC2 instance and run the JAR using Docker
       - name: Deploy to EC2 via SSH
@@ -50,5 +50,5 @@ jobs:
 
             # Run the new JAR file inside a Docker container
             docker run -d --name my-java-app -p 8080:8080 \
-              -v /home/ubuntu/your-app.jar:/app/your-app.jar openjdk:17-jdk-slim \
+              -v /home/ec2-user/your-app.jar:/app/your-app.jar openjdk:17-jdk-slim \
               java -jar /app/your-app.jar
